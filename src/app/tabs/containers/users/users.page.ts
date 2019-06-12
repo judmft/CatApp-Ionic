@@ -1,22 +1,27 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/users.model';
+import { TabsService } from '../../tabs.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: 'users.page.html',
   styleUrls: ['users.page.scss']
 })
-export class UsersPage implements OnInit{
+export class UsersPage implements OnInit {
 
-  @Input() users: User[];
+  users: User[];
   @Output() userSelectEvent = new EventEmitter();
 
-  constructor() { }
+  constructor(private tabsService: TabsService) { }
 
-  ngOnInit() {}
-
-  beerSelect(user: User) {
-    this.userSelectEvent.emit(user);
+  ngOnInit() {
+    this.tabsService.getUsers().subscribe(users => {
+      console.log(users)
+      this.users = users;
+    });
   }
+
+
+
 
 }

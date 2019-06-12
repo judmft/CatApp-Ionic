@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../../models/users.model';
 
 @Component({
   selector: 'app-user-list',
@@ -7,8 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
+  @Input() users: User[];
+  @Output() userSelectEvent = new EventEmitter();
+
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    setTimeout(() => {
+      this.users
+    }, 3000);
+  }
+
+  userSelect(user: User) {
+    this.userSelectEvent.emit(user);
+  }
+
 
 }
