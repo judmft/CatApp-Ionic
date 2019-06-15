@@ -1,22 +1,15 @@
-<ion-grid>
   <ion-card>
       <ion-card-header>
-          <ion-card-subtitle>Info</ion-card-subtitle>
+          <ion-card-subtitle>user.perfil</ion-card-subtitle>
           <ion-card-title>{{ user.name }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-          <ion-row class="ion-align-items-center">
-              <ion-col size="12" >
-                  <p>Email: {{ user.email }}</p>
-                  <p>Id: {{ beer.id }}</p>
-              </ion-col>
-              <!-- <ion-col size="6">
-                      <img [src]="beer.photo" alt="Imagen de un botellín de cerveza">
-              </ion-col> -->
-          </ion-row>
+            <p>Dni: {{ user.dni ? user.dni : "Sin datos"}}</p>
+            <p>Teléfono: {{ user.phone ? user.phone : "Sin datos"}}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Perfil {{ user.perfil }}</p>
       </ion-card-content>
   </ion-card>
-</ion-grid>
 
 
 

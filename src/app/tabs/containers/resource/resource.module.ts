@@ -5,17 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserPage } from './user.page';
-import { UserDetailComponent } from '../../components/user-detail/user-detail.component';
-import { UserEditPage } from '../user-edit/user-edit.page';
+import { ResourcePage } from './resource.page';
 
 const routes: Routes = [
-  
   {
     path: '',
-    component: UserPage
-  },
-  
+    component: ResourcePage
+  }
 ];
 
 @NgModule({
@@ -25,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UserPage, UserEditPage]
+  declarations: [ResourcePage]
 })
-export class UserPageModule {}
+export class ResourcePageModule {}

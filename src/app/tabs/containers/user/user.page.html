@@ -1,6 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>user</ion-title>
+  <ion-toolbar color="primary">
+      <ion-buttons color="primary" fill="solid" slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ng-container>
+      <ion-title>Usuario</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="primary" fill="solid" (click)="editUser()"><ion-icon name="edit"></ion-icon></ion-button>
+    </ion-buttons>
+    </ng-container>
+    <ion-title *ngIf="!user">Nuevo Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 

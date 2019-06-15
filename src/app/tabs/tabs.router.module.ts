@@ -11,6 +11,7 @@ const routes: Routes = [
         path: 'users',
         loadChildren: './containers/users/users.module#UsersPageModule'
       },
+  
       {
         path: 'resources',
         loadChildren: './containers/resources/resources.module#ResourcesPageModule'

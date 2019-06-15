@@ -11,12 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UsersPage implements OnInit {
 
-  user: User;
   users: User[];
-  userForm: FormGroup;
   @Output() userSelectEvent = new EventEmitter();
 
-  constructor(private tabsService: TabsService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private tabsService: TabsService, private router: Router) {
 
    }
 
@@ -26,21 +24,15 @@ export class UsersPage implements OnInit {
       this.users = users;
     });
 
-    
-
-
-    this.userForm = this.formBuilder.group({
-      name: [null, Validators.required],
-      email: [null, Validators.email],
-      password: [null],
-      password_confirm: [null],
-    });
-
   }
 
   userSelection(id: number) {
     this.router.navigate(['tabs/users', id]);
 
+  }
+
+  addUser(){
+    this.router.navigate(['tabs/users/new'])
   }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../models/users.model';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TabsService } from '../../tabs.service';
+import { User } from '../../models/users.model';
 
 @Component({
   selector: 'app-user-form',
@@ -10,28 +10,33 @@ import { TabsService } from '../../tabs.service';
 })
 export class UserFormComponent implements OnInit {
 
-  @Input() users: User[];
   @Input() userForm: FormGroup;
+  @Input() user: User;
 
+  tipos = [
+    "Usuario",
+    "Admin",
+    "Invitado"
+  ];
+  perfiles = [
+    "Médico",
+    "Enfermero",
+    "TES",
+    "Socorrista",
+    "Humanitario",
+    "Psicólogo",
+    "Administrativo",
+    "Mantenimiento"
+  ]
 
-  constructor(private tabsService: TabsService) {
-  
-  }
+  constructor(private tabsService: TabsService, private formBuilder: FormBuilder) {}
 
-  ngOnInit() {
-    // this.userForm.get('photo').valueChanges.pipe(debounceTime(2000)).subscribe(data => {
-    //   console.log(data);
-    //   this.userForm = data;
-    // });
-
-    // this.formGroup.addControl('new', new FormControl(this.beer.brand));
-
-  }
+  ngOnInit() {}
 
   onSubmit(){
-    console.log(this.userForm.value)
     this.tabsService.createUser(this.userForm.value).subscribe(res => {
-      console.log('El producto ha sido creado correctamente', res);
+
+      console.log('El usuario ha sido creado correctamente', res);
     },
     () => {
       console.log('No se ha podido crear el producto');

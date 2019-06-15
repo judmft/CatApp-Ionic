@@ -1,5 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button color="primary" fill="solid" (click)="missingUser()"><ion-icon name="add"></ion-icon></ion-button>
+        </ion-buttons>
     <ion-title>Desaparecidos</ion-title>
   </ion-toolbar>
 </ion-header>

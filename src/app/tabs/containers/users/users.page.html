@@ -1,5 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color='primary'>
+      <ion-buttons color="primary" fill="solid" slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-button color="primary" fill="solid" (click)="addUser()"><ion-icon name="add"></ion-icon></ion-button>
+      </ion-buttons>
     <ion-title>
       Usuarios
     </ion-title>
@@ -8,5 +14,4 @@
 
 <ion-content>
     <app-user-list *ngIf="users" [users]="users" (userSelectEvent)="userSelection($event)"></app-user-list>
-    <app-user-form [userForm]="userForm" [users]="users"></app-user-form>
 </ion-content>

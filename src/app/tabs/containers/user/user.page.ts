@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/users.model';
 import { TabsService } from '../../tabs.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -14,20 +14,27 @@ export class UserPage implements OnInit {
   user: User;
   
   constructor(private tabsService: TabsService, private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) 
-    { }
+    {
+      }
 
   ngOnInit() {
-    
     this.activatedRoute.params.subscribe(params => {
-      console.log("params: ", params)
-
-      this.tabsService.getUser(params.id).subscribe(res => {
-        console.log("res: ", res)
-        this.user = res;
-      }, err => {
-        console.error(err);
-      });
-    })
+      if (params.id){
+        this.tabsService.getUser(params.id).subscribe(res => {
+          this.user = res;
+          console.log("user", this.user)
+        }, err => {
+          console.error(err);
+        });
+      }
+      
+    });
+    
   }
+
+  editUser(){
+    this.router.navigate(['tabs/users', this.user.id, 'edit']) 
+  }
+  
 
 }

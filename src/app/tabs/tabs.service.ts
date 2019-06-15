@@ -39,10 +39,25 @@ export class TabsService {
     return this.http.get<User>(`${this.USERS_API}/${userId}`);
   }
 
+  getResource(resourceId: number): Observable<Resource> {
+    return this.http.get<Resource>(`${this.RESOURCES_API}/${resourceId}`);
+  }
+
+  getMissingPerson(missId): Observable<Missing> {
+    return this.http.get<Missing>(`${this.MISSING_API}/${missId}`);
+  }
+
   createUser(user: User): Observable<User>{
     console.log(user)
-      return this.http.post<User>(`${this.USERS_API}`, user);
-      
+    return this.http.post<User>(`${this.USERS_API}`, user);
+  }
+
+  createResource(resource: Resource): Observable<Resource>{
+      return this.http.post<Resource>(`${this.RESOURCES_API}`, resource);
+  }
+
+  createMissing(missing: Missing): Observable<Missing>{
+      return this.http.post<Missing>(`${this.MISSING_API}`, missing);
   }
     
   

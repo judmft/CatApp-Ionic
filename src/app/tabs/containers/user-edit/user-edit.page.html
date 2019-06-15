@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button color="danger" text="Cancel" [icon]="null"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button type="submit" fill="solid" color="dark" [disabled]="!userForm.valid">Guardar</ion-button>
+        </ion-buttons>
+    <ion-title *ngIf="user">Editar usuario</ion-title>
+    <ion-title *ngIf="!user">Nuevo Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <app-user-form [user]="user" [userForm]="userForm"></app-user-form>
+</ion-content>
