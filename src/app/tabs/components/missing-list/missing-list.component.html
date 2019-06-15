@@ -5,7 +5,7 @@
     </ion-avatar>
     <ion-label>
       <h3>
-        {{ missing_person.name }}, {{ missing_person.lastname }}
+        {{ missing_person.name }} {{ missing_person.lastname }}
       </h3>
       <p>
         {{ missing_person.age }}
@@ -24,14 +24,14 @@
   </ion-item>
 
   <!-- Skeleton screen -->
-  <div *ngIf="!missing_people.length">
-    <!-- <div class="ion-padding custom-skeleton">
-    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-    <ion-skeleton-text animated></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-  </div> -->
+  <div *ngIf="!missing_people">
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
 
     <ion-item *ngFor="let missing_person of missing_people">
       <!-- <ion-list-header>

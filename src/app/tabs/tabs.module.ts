@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   declarations: [TabsPage]
 })

@@ -7,5 +7,6 @@
 </ion-header>
 
 <ion-content>
-    <app-user-list *ngIf="users" [users]="users"></app-user-list>
+    <app-user-list *ngIf="users" [users]="users" (userSelectEvent)="userSelection($event)"></app-user-list>
+    <app-user-form [userForm]="userForm" [users]="users"></app-user-form>
 </ion-content>

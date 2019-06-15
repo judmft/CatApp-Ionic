@@ -19,7 +19,8 @@ export class MissingListComponent implements OnInit {
 
     setTimeout(() => {
       this.missing_people
-    }, 3000);
+          }, 5000);
+    
   }
 
   missing_personSelect(missing_person: Missing) {

@@ -11,7 +11,7 @@
         {{ user.email }}
       </p>
       <p>
-        {{ user.id }}
+        {{ user.userId }}
       </p>
     </ion-label>
     <!-- <ion-thumbnail item-left>
@@ -24,7 +24,7 @@
   </ion-item>
 
   <!-- Skeleton screen -->
-  <div *ngIf="!users.length">
+  <div *ngIf="!users">
     <!-- <div class="ion-padding custom-skeleton">
     <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
     <ion-skeleton-text animated></ion-skeleton-text>

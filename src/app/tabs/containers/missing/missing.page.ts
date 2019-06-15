@@ -17,7 +17,10 @@ export class MissingPage implements OnInit {
   ngOnInit() {
     this.tabsService.getMissingPeople().subscribe(missing_people => {
       console.log(missing_people)
-      this.missing_people = missing_people;
+      setTimeout(() => {
+        this.missing_people = missing_people;
+            }, 5000);
+      
     });
   }
 }

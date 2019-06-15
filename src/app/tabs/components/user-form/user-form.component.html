@@ -1,0 +1,19 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <ion-item>
+    <ion-label>Nombre usuario</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>email</ion-label>
+    <ion-input type="text" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Contraseña</ion-label>
+    <ion-input type="text" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Confirme contraseña</ion-label>
+    <ion-input type="text" formControlName="password_confirm"></ion-input>
+  </ion-item>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
