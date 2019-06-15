@@ -11,57 +11,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UsersPage implements OnInit {
 
+  user: User;
   users: User[];
   userForm: FormGroup;
   @Output() userSelectEvent = new EventEmitter();
 
-  constructor(private tabsService: TabsService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private tabsService: TabsService, private router: Router, private formBuilder: FormBuilder) {
+
+   }
 
   ngOnInit() {
+
     this.tabsService.getUsers().subscribe(users => {
-      console.log(users)
       this.users = users;
     });
+
+    
 
 
     this.userForm = this.formBuilder.group({
       name: [null, Validators.required],
-      email: [null],
+      email: [null, Validators.email],
       password: [null],
       password_confirm: [null],
     });
-    
-    // this.activatedRoute.params.subscribe(params => {
-    //   if (params.beerBrand) {
-    //     this.beersService.getBeer(params.beerBrand).subscribe(res => {
-    //       this.beer = res;
-    //       console.log(this.beer);
-    //       this.formGroup.patchValue(this.beer);
 
-
-    //       const variantsForm = this.formGroup.get('variants') as FormArray;
-    //       this.beer.variants.forEach(element =>{
-    //         variantsForm.push(this.formBuilder.group(element))
-    //         console.log(element)
-
-    //       }
-    //       );
-          
-    //     }, err => {
-    //       console.error(err);
-    //     });
-    //   }
-    // })
-
-    // this.formGroup.get('brand').valueChanges.subscribe(data => {
-    //   console.log(data);
-    //   this.formGroup.get('year').setValue(2015);
-    // });
   }
 
-  userSelection(user: User) {
-    console.log(user)
-    this.router.navigate(['users', user.userId]);
+  userSelection(id: number) {
+    this.router.navigate(['tabs/users', id]);
 
   }
 

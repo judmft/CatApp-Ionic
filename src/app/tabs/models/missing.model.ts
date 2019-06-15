@@ -1,5 +1,5 @@
 export interface Missing {
-    missingId: string;
+    id: string;
     image?: string;
     name: string;
     lastname?: string;

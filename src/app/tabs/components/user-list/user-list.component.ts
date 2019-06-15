@@ -22,7 +22,8 @@ export class UserListComponent implements OnInit {
   }
 
   userSelect(user: User) {
-    this.userSelectEvent.emit(user);
+    console.log(user)
+    this.userSelectEvent.emit(user.id);
   }
 
 

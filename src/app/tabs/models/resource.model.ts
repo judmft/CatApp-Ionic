@@ -1,5 +1,5 @@
 export interface Resource {
-    resourceId: string;
+    id: string;
     name: string;
     localization: string;
     type: string;
