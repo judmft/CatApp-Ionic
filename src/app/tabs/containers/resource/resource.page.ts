@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TabsService } from '../../tabs.service';
+import { Resource } from '../../models/resource.model';
 
 @Component({
   selector: 'app-resource',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourcePage implements OnInit {
 
-  constructor() { }
+  resource: Resource;
+
+  constructor(private activatedRoute: ActivatedRoute, private tabsService: TabsService) { }
 
   ngOnInit() {
+
+    this.activatedRoute.params.subscribe(params => {
+      if (params.id){
+        this.tabsService.getResource(params.id).subscribe(res => {
+          this.resource = res;
+          console.log("resource", this.resource)
+        }, err => {
+          console.error(err);
+        });
+      }
+    });
   }
 
 }

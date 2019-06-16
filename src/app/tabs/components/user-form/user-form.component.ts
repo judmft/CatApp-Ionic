@@ -39,7 +39,7 @@ export class UserFormComponent implements OnInit {
       console.log('El usuario ha sido creado correctamente', res);
     },
     () => {
-      console.log('No se ha podido crear el producto');
+      console.log('No se ha podido crear el usuario');
     })
   }
 

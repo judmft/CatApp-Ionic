@@ -22,7 +22,7 @@ export class ResourceListComponent implements OnInit {
   }
 
   resourceSelect(resource: Resource) {
-    this.resourceSelectEvent.emit(resource);
+    this.resourceSelectEvent.emit(resource.id);
   }
 
 }

@@ -1,3 +1,16 @@
-<p>
-  resource-form works!
-</p>
+<form [formGroup]="resourceForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label>Recurso</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dni</ion-label>
+      <ion-input type="text" formControlName="localization"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Edad</ion-label>
+        <ion-input type="text" formControlName="category" ></ion-input>
+    </ion-item>
+      <button type="submit" *ngIf="resourceForm" [disabled]="!resourceForm.valid">Añadir</button>
+  </form>
+  

@@ -27,7 +27,9 @@ export class UserEditPage implements OnInit {
       tipo: [null],
       perfil: [null],
       email: [null, [Validators.email, Validators.required]],
-      password_digest: [null, Validators.required],
+      password: [null, Validators.required],
+      password_confirmation: [null],
+
     });
 
     this.activatedRoute.params.subscribe(params => {
@@ -39,11 +41,8 @@ export class UserEditPage implements OnInit {
         }, err => {
           console.error(err);
         });
-      }
-      
+      } 
     });
-    
-
   }
 
 }

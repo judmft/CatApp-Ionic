@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TabsService } from '../../tabs.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-resource-form',
@@ -7,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourceFormComponent implements OnInit {
 
-  constructor() { }
+  @Input() resourceForm: FormGroup;
+
+  constructor(private tabsService: TabsService) { }
 
   ngOnInit() {}
+
+  onSubmit(){
+    this.tabsService.createResource(this.resourceForm.value).subscribe(res => {
+      console.log('El recurso ha sido creado correctamente', res);
+    },
+    () => {
+      console.log('No se ha podido crear el recurso');
+    })
+  }
 
 }

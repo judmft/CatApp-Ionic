@@ -5,14 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ResourcePage } from './resource.page';
-import { ResourceDetailComponent } from '../../components/resource-detail/resource-detail.component';
-import { ResourceEditPage } from '../resource-edit/resource-edit.page';
+import { ResourceEditPage } from './resource-edit.page';
+import { ResourceFormComponent } from '../../components/resource-form/resource-form.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ResourcePage
+    component: ResourceEditPage
   }
 ];
 
@@ -23,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ResourcePage, ResourceEditPage]
+  declarations: [ResourceEditPage, ResourceFormComponent]
 })
-export class ResourcePageModule {}
+export class ResourceEditPageModule {}

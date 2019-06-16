@@ -1,11 +1,13 @@
 export interface User {
+    email: string;
       id?: string;
       name: string;
-      email: string;
-      password_digest: string;
-      tipo?: number;
+      
+      password: string;
+      password_confirmation: string;
+      tipo?: string;
       age?: number;
       dni?: string;
-      phone?: string;
-      perfil?: number;
+      phone?: number;
+      perfil?: string;
   }

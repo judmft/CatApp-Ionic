@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>resource</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar color="primary">
+        <ion-buttons text="Cancelar" slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+      <ng-container>
+        <ion-title>Recurso</ion-title>
+        <ion-buttons slot="end">
+          <ion-button color="primary" fill="solid" (click)="editResource()"><ion-icon name="edit"></ion-icon></ion-button>
+      </ion-buttons>
+      </ng-container>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <app-resource-detail *ngIf="resource" [resource]="resource"></app-resource-detail>
+  </ion-content>
+  

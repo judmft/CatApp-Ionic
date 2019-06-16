@@ -1,14 +1,22 @@
   <ion-card>
       <ion-card-header>
-          <ion-card-subtitle>user.perfil</ion-card-subtitle>
+          <ion-card-subtitle>{{ user.perfil }}</ion-card-subtitle>
           <ion-card-title>{{ user.name }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
             <p>Dni: {{ user.dni ? user.dni : "Sin datos"}}</p>
             <p>Teléfono: {{ user.phone ? user.phone : "Sin datos"}}</p>
             <p>Email: {{ user.email }}</p>
-            <p>Perfil {{ user.perfil }}</p>
+            <p>Rol: {{ user.tipo }}</p>
       </ion-card-content>
+      <ion-item class="activated" >
+            <ion-icon name="business" slot="start"></ion-icon>
+            <ion-label>Recursos activos para este usuario</ion-label>
+    </ion-item>
+    <ion-item  *ngFor="let resource of user.resources" > 
+            <ion-icon name="ambulance" slot="start"></ion-icon>
+            <ion-label >{{ resource.name }}</ion-label>
+    </ion-item>
   </ion-card>
 
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Resource } from '../../models/resource.model';
 
 @Component({
   selector: 'app-resource-detail',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourceDetailComponent implements OnInit {
 
+  @Input() resource: Resource;
+  
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.resource)
+  }
 
 }

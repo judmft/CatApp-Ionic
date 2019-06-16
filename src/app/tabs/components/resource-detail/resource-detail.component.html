@@ -1,3 +1,13 @@
-<p>
-  resource-detail works!
-</p>
+<ion-card>
+    <ion-card-header>
+        <ion-card-subtitle>{{ resource.category }}</ion-card-subtitle>
+        <ion-card-title>{{ resource.name }}</ion-card-title>
+        <p>{{ resource.localization }}</p>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-item  *ngFor="let form_field of resource.form_fields" > 
+              <ion-label>{{ form_field.field }}</ion-label>
+              <p>{{ form_field.value }}<p>
+        </ion-item>
+      </ion-card-content>
+</ion-card>

@@ -18,13 +18,13 @@
   <ion-item>
       <ion-label>Tipo</ion-label>
       <ion-select formControlName="tipo" placeholder="Select One" >
-        <ion-select-option *ngFor="let tipo of tipos; let i = index" [value]="i">{{ tipo }}</ion-select-option>
+        <ion-select-option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</ion-select-option>
       </ion-select>
   </ion-item>
   <ion-item>
       <ion-label>Perfil</ion-label>
       <ion-select formControlName="perfil" placeholder="Select One" >
-        <ion-select-option *ngFor="let perfil of perfiles; let i = index " [value]="i">{{ perfil }}</ion-select-option>
+        <ion-select-option *ngFor="let perfil of perfiles" [value]="perfil">{{ perfil }}</ion-select-option>
       </ion-select>
   </ion-item>
   <ion-item>
@@ -33,11 +33,11 @@
   </ion-item>
   <ion-item>
     <ion-label>Contraseña</ion-label>
-    <ion-input type="text" formControlName="password_digest"></ion-input>
+    <ion-input type="text" formControlName="password"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Confirme contraseña</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" formControlName="password_confirmation"></ion-input>
   </ion-item>
     <button type="submit" *ngIf="userForm" [disabled]="!userForm.valid">Submit</button>
 </form>
