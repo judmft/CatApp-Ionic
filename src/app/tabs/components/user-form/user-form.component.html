@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="userForm">
   <ion-item>
     <ion-label>Nombre usuario</ion-label>
     <ion-input type="text" formControlName="name"></ion-input>
@@ -39,5 +39,4 @@
     <ion-label>Confirme contraseña</ion-label>
     <ion-input type="text" formControlName="password_confirmation"></ion-input>
   </ion-item>
-    <button type="submit" *ngIf="userForm" [disabled]="!userForm.valid">Submit</button>
 </form>

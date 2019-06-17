@@ -5,13 +5,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MissingPersonPage } from './missing-person.page';
-import { MissingEditPage } from '../missing-edit/missing-edit.page';
+import { MissingEditPage } from './missing-edit.page';
+import { MissingFormComponent } from '../../components/missing-form/missing-form.component';
+import { MissingPage } from '../missing/missing.page';
 
 const routes: Routes = [
   {
+    path: 'tabs/missing',
+    component: MissingPage
+  },
+  {
     path: '',
-    component: MissingPersonPage
+    component: MissingEditPage
   }
 ];
 
@@ -22,6 +27,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MissingPersonPage, MissingEditPage]
+  declarations: [MissingEditPage, MissingFormComponent, MissingPage]
 })
-export class MissingPersonPageModule {}
+export class MissingEditPageModule {}

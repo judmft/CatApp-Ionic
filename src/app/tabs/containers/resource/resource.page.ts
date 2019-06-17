@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TabsService } from '../../tabs.service';
 import { Resource } from '../../models/resource.model';
 
@@ -12,7 +12,7 @@ export class ResourcePage implements OnInit {
 
   resource: Resource;
 
-  constructor(private activatedRoute: ActivatedRoute, private tabsService: TabsService) { }
+  constructor(private activatedRoute: ActivatedRoute, private tabsService: TabsService, private router: Router) { }
 
   ngOnInit() {
 
@@ -26,6 +26,10 @@ export class ResourcePage implements OnInit {
         });
       }
     });
+  }
+
+  editResource(){
+    this.router.navigate(['tabs/resources', this.resource.id, 'edit']) 
   }
 
 }

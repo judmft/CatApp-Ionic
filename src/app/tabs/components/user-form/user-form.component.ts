@@ -29,18 +29,9 @@ export class UserFormComponent implements OnInit {
     "Mantenimiento"
   ]
 
-  constructor(private tabsService: TabsService, private formBuilder: FormBuilder) {}
+  constructor() {}
 
   ngOnInit() {}
 
-  onSubmit(){
-    this.tabsService.createUser(this.userForm.value).subscribe(res => {
-
-      console.log('El usuario ha sido creado correctamente', res);
-    },
-    () => {
-      console.log('No se ha podido crear el usuario');
-    })
-  }
-
+  
 }

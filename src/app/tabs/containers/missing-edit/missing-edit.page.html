@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="Cancelar"></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button type="submit" [disabled]="!missingForm.valid" (click)="onSubmit()">Añadir</ion-button>
+          </ion-buttons>
+      <ion-title *ngIf="missing_person">Editar desaparecido</ion-title>
+      <ion-title *ngIf="!missing_personr">Nuevo desaparecido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content>
+  <app-missing-form [missingForm]="missingForm"></app-missing-form>
+</ion-content>

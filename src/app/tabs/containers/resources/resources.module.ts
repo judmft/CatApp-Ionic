@@ -2,7 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResourcesPage } from './resources.page';
 import { ResourceListComponent } from 'src/app/tabs/components/resource-list/resource-list.component';
 import { ResourcePage } from '../resource/resource.page';
@@ -23,6 +23,10 @@ const routes: Routes = [
     path: ':id',
     component: ResourcePage
   },
+  {
+    path: ':id/edit',
+    component: ResourceEditPage
+  },  
   
 ] 
 @NgModule({
@@ -30,6 +34,7 @@ const routes: Routes = [
     IonicModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ResourcesPage, ResourceListComponent, ResourcePage, ResourceDetailComponent, ResourceEditPage, ResourceFormComponent]

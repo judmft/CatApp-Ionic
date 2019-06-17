@@ -45,4 +45,24 @@ export class UserEditPage implements OnInit {
     });
   }
 
+  onSubmit(){
+    if (this.user.id){
+      this.tabsService.updateUser(this.user.id, this.userForm.value).subscribe(res => {
+        console.log(res)
+        this.router.navigate(['tabs/users'])
+        console.log('El usuario ha sido editado correctamente', res);
+      },
+      () => {
+        console.log('No se ha podido editar el usuario');
+      });
+    }else{
+      this.tabsService.createUser(this.userForm.value).subscribe(res => {
+        this.router.navigate(['tabs/users'])
+        console.log('El usuario ha sido creado correctamente', res);
+      },
+    () => {
+      console.log('No se ha podido crear el usuario');
+    })
+    }
+  }
 }

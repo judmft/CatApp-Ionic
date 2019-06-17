@@ -4,12 +4,12 @@
           <ion-back-button></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button color="primary" fill="solid" (click)="missingUser()"><ion-icon name="add"></ion-icon></ion-button>
+            <ion-button color="primary" fill="solid" (click)="addMissing()"><ion-icon name="add"></ion-icon></ion-button>
         </ion-buttons>
     <ion-title>Desaparecidos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <app-missing-list [missing_people]="missing_people"></app-missing-list>
+    <app-missing-list *ngIf="missing_people" [missing_people]="missing_people" (missingSelectEvent)="missingSelection($event)"></app-missing-list>
 </ion-content>

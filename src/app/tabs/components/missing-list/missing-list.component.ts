@@ -23,8 +23,8 @@ export class MissingListComponent implements OnInit {
     
   }
 
-  missing_personSelect(missing_person: Missing) {
-    this.missingSelectEvent.emit(missing_person);
+  missingSelect(missing_person: Missing) {
+    this.missingSelectEvent.emit(missing_person.id);
   }
 
 }

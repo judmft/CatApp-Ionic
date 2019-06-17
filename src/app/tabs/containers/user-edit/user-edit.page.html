@@ -4,7 +4,7 @@
           <ion-back-button text="Cancelar"></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button type="submit" [disabled]="!userForm.valid">Guardar</ion-button>
+          <ion-button type="submit" [disabled]="!userForm.valid" (click)="onSubmit()">Añadir</ion-button>
         </ion-buttons>
     <ion-title *ngIf="user">Editar usuario</ion-title>
     <ion-title *ngIf="!user">Nuevo Usuario</ion-title>

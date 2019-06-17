@@ -37,5 +37,25 @@ export class ResourceEditPage implements OnInit {
       } 
     });
   }
-
+  
+  onSubmit(){
+    if (this.resource.id){
+      this.tabsService.updateResource(this.resource.id, this.resourceForm.value).subscribe(res => {
+        console.log(res)
+        this.router.navigate(['tabs/resources'])
+        console.log('El recurso ha sido editado correctamente', res);
+      },
+      () => {
+        console.log('No se ha podido editar el recurso');
+      });
+    }else{
+      this.tabsService.createResource(this.resourceForm.value).subscribe(res => {
+      this.router.navigate(['tabs/resources'])
+      console.log('El recurso ha sido creado correctamente', res);
+    },
+    () => {
+      console.log('No se ha podido crear el recurso');
+    })
+    } 
+  }
 }

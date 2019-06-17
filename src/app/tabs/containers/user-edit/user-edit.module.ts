@@ -7,8 +7,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { UserEditPage } from './user-edit.page';
 import { UserFormComponent } from '../../components/user-form/user-form.component';
+import { UsersPage } from '../users/users.page';
 
 const routes: Routes = [
+  {
+    path: 'tabs/users',
+    component: UsersPage
+  },
   {
     path: '',
     component: UserEditPage
@@ -23,6 +28,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UserEditPage, UserFormComponent]
+  declarations: [UserEditPage, UserFormComponent, UsersPage]
 })
 export class UserEditPageModule {}

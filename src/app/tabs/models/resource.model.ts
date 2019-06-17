@@ -1,7 +1,7 @@
 import { User } from './users.model';
 
 export interface Resource {
-    id?: string;
+    id?: number;
     name: string;
     localization: string;
     category: string;

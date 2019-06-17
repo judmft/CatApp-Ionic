@@ -11,17 +11,21 @@ export class ResourceFormComponent implements OnInit {
 
   @Input() resourceForm: FormGroup;
 
-  constructor(private tabsService: TabsService) { }
+  categorias = [
+    "Hospital",
+    "Albergue",
+    "PMA",
+    "Ambulancia",
+    "VIR",
+    "Vehículo",
+    "Otros"
+  ]
 
-  ngOnInit() {}
+  constructor() { }
 
-  onSubmit(){
-    this.tabsService.createResource(this.resourceForm.value).subscribe(res => {
-      console.log('El recurso ha sido creado correctamente', res);
-    },
-    () => {
-      console.log('No se ha podido crear el recurso');
-    })
+  ngOnInit() {
   }
+
+  
 
 }

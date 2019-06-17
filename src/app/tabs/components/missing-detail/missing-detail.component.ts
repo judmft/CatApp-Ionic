@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Missing } from '../../models/missing.model';
 
 @Component({
   selector: 'app-missing-detail',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MissingDetailComponent implements OnInit {
 
+  @Input() missing_person: Missing;
+  
   constructor() { }
 
   ngOnInit() {}

@@ -1,3 +1,74 @@
-<p>
-  missing-form works!
-</p>
+<form [formGroup]="missingForm">
+  <!-- img -->
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Apellidos</ion-label>
+      <ion-input type="text" formControlName="lastname" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edad</ion-label>
+    <ion-input type="number" formControlName="age"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Sexo</ion-label>
+      <ion-select formControlName="gender" placeholder="Seleccione uno" >
+        <ion-select-option  [value]="Femenino">Femenino</ion-select-option>
+        <ion-select-option  [value]="Masculino">Masculino</ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-textarea formControlName="description" placeholder="Descripción de la persona..."></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Altura</ion-label>
+    <ion-input type="number" formControlName="height"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Peso</ion-label>
+    <ion-input type="number" formControlName="weight"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Color de ojos</ion-label>
+    <ion-select formControlName="eye" placeholder="Seleccione uno" >
+        <ion-select-option *ngFor="let eye of eyes" [value]="eye">{{ eye }}</ion-select-option>
+      </ion-select>  </ion-item>
+  <ion-item>
+      <ion-label>Raza</ion-label>
+      <ion-select formControlName="race" placeholder="Seleccione uno" >
+        <ion-select-option *ngFor="let race of races" [value]="race">{{ race }}</ion-select-option>
+      </ion-select>
+  </ion-item>    
+  <ion-item>
+      <ion-label>Pelo</ion-label>
+      <ion-select formControlName="hair" placeholder="Seleccione uno" >
+        <ion-select-option  *ngFor="let hair of hairs" [value]="hair">{{ hair }}</ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>
+      <ion-label>Color de pelo</ion-label>
+      <ion-select formControlName="hair_color" placeholder="Seleccione uno" >
+          <ion-select-option  *ngFor="let hair_color of hair_colors" [value]="hair_color">{{ hair_color }}</ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>
+      <ion-label>Complexión</ion-label>
+      <ion-select formControlName="complexion" placeholder="Seleccione uno" >
+          <ion-select-option  *ngFor="let complexion of complexions" [value]="complexion">{{ complexion }}</ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>
+      <ion-label>Persona de contacto</ion-label>
+      <ion-input type="string" formControlName="contact_name"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Parentesco</ion-label>
+      <ion-input type="string" formControlName="relatioship"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Teléfono</ion-label>
+      <ion-input type="number" formControlName="phone"></ion-input>
+  </ion-item>
+</form>

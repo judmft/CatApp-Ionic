@@ -7,8 +7,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { ResourceEditPage } from './resource-edit.page';
 import { ResourceFormComponent } from '../../components/resource-form/resource-form.component';
+import { ResourcesPage } from '../resources/resources.page';
 
 const routes: Routes = [
+  {
+    path: 'tabs/resources',
+    component: ResourcesPage
+  },
   {
     path: '',
     component: ResourceEditPage
@@ -22,6 +27,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ResourceEditPage, ResourceFormComponent]
+  declarations: [ResourceEditPage, ResourceFormComponent, ResourcesPage]
 })
 export class ResourceEditPageModule {}
