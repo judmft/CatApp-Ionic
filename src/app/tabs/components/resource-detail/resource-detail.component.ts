@@ -13,7 +13,7 @@ export class ResourceDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.resource)
+    console.log(this.resource.users)
   }
 
 }

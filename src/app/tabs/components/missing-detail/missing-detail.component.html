@@ -1,9 +1,10 @@
 <ion-card>
+    <img [src]="missing_person.image" alt="imagen de la persona desaparecida">
     <ion-card-header>
-        <ion-card-subtitle>{{ missing_person.name }}</ion-card-subtitle>
-        <ion-card-title>{{ missing_person.lastname }}</ion-card-title>
+        <ion-card-subtitle>{{ missing_person.age }} años</ion-card-subtitle>
+        <ion-card-title>{{ missing_person.name }} {{ missing_person.lastname }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-        
-      </ion-card-content>
+        {{ missing_person.description }}
+    </ion-card-content>
 </ion-card>

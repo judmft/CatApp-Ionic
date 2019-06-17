@@ -1,13 +1,24 @@
 <ion-card>
     <ion-card-header>
         <ion-card-subtitle>{{ resource.category }}</ion-card-subtitle>
-        <ion-card-title>{{ resource.name }}</ion-card-title>
+        <ion-card-title>{{ resource.name }} </ion-card-title><i class="icon-ambulance"></i>
         <p>{{ resource.localization }}</p>
     </ion-card-header>
     <ion-card-content>
-        <ion-item  *ngFor="let form_field of resource.form_fields" > 
-              <ion-label>{{ form_field.field }}</ion-label>
-              <p>{{ form_field.value }}<p>
+        <ion-item  *ngFor="let form_field of resource.form_fields; let i = index" > 
+              <ion-label>{{ resource.form_fields[i].field }}: {{ resource.form_fields[i].value }}</ion-label>
         </ion-item>
-      </ion-card-content>
+    </ion-card-content>
+    <ion-item *ngIf="resource.users.length" class="activated" color="primary" >
+        <ion-icon name="people" slot="start"></ion-icon>
+        <ion-label>Usuarios asignados</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!resource.users.length" class="activated" color="primary" >
+            <ion-icon name="people" slot="start"></ion-icon>
+            <ion-label>No hay usuarios asignados</ion-label>
+    </ion-item>
+    <ion-item  *ngFor="let user of resource.users; let i = index" class="activated"> 
+        <ion-label><strong> {{ resource.users[i].id }} </strong>  {{ resource.users[i].name }}</ion-label>
+        <ion-card-subtitle>{{ resource.users[i].perfil }} </ion-card-subtitle>
+    </ion-item>
 </ion-card>

@@ -9,11 +9,15 @@
         <p>Email: {{ user.email }}</p>
         <p>Rol: {{ user.tipo }}</p>
   </ion-card-content>
-  <ion-item class="activated" >
+  <ion-item *ngIf="user.resources.length" class="activated" color="primary">
         <ion-icon name="business" slot="start"></ion-icon>
         <ion-label>Recursos activos</ion-label>
 </ion-item>
-<ion-item  *ngFor="let resource of user.resources" > 
+<ion-item *ngIf="!user.resources.length" class="activated" color="primary">
+            <ion-icon name="business" slot="start"></ion-icon>
+            <ion-label>No hay recursos activos</ion-label>
+    </ion-item>
+<ion-item  *ngFor="let resource of user.resources" class="activated"> 
         <ion-label >{{ resource.name }}</ion-label>
 </ion-item>
 </ion-card>

@@ -12,6 +12,8 @@ export class MissingDetailComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.missing_person)
+  }
 
 }
