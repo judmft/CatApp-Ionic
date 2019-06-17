@@ -1,6 +1,6 @@
 <form [formGroup]="userForm">
   <ion-item>
-    <ion-label>Nombre usuario</ion-label>
+    <ion-label>Nombre</ion-label>
     <ion-input type="text" formControlName="name"></ion-input>
   </ion-item>
   <ion-item>
@@ -39,4 +39,7 @@
     <ion-label>Confirme contraseña</ion-label>
     <ion-input type="text" formControlName="password_confirmation"></ion-input>
   </ion-item>
+  <!-- <p *ngIf="userForm.get('password').value !== userForm.get('password_confirmation')">
+    Passwords do not match
+    </p> -->
 </form>

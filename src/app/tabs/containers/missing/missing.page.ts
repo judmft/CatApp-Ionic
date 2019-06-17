@@ -16,6 +16,12 @@ export class MissingPage implements OnInit {
   constructor(private tabsService: TabsService, private router: Router) { }
 
   ngOnInit() {
+   
+  }
+
+  //El Lazy Load de Ionic hace que esta página se cargue una sola vez
+  //por lo que para ver los cambios sin recargar el navegadro debemos llamar a esta función
+  ionViewWillEnter(){
     this.tabsService.getMissingPeople().subscribe(missing => {
       this.missing_people = missing;
     });

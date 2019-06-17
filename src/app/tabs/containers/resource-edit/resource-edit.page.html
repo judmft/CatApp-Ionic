@@ -1,16 +1,16 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button text="Cancelar"></ion-back-button>
-          </ion-buttons>
-          <ion-buttons slot="end">
-            <ion-button type="submit" [disabled]="!resourceForm.valid" (click)="onSubmit()">Añadir</ion-button>
-          </ion-buttons>
-      <ion-title *ngIf="resource">Editar recurso</ion-title>
-      <ion-title *ngIf="!resource">Nuevo recurso</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button type="submit" [disabled]="!resourceForm.valid" (click)="onSubmit()">{{ resource ? "Guardar" : "Añadir"}}</ion-button>
+        </ion-buttons>
+    <ion-title *ngIf="resource">Editar recurso</ion-title>
+    <ion-title *ngIf="!resource">Nuevo recurso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <app-resource-form *ngIf="resourceForm" [resourceForm]="resourceForm"></app-resource-form>
+<app-resource-form *ngIf="resourceForm" [resourceForm]="resourceForm"></app-resource-form>
 </ion-content>

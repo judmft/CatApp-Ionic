@@ -14,7 +14,12 @@ export class ResourceEditPage implements OnInit {
   resource: Resource;
   resourceForm: FormGroup;
   
-  constructor(private tabsService: TabsService, private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute){
+  constructor(
+    private tabsService: TabsService, 
+    private router: Router, 
+    private formBuilder: FormBuilder, 
+    private activatedRoute: ActivatedRoute)
+    {
 
   } 
 

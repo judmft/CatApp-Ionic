@@ -1,56 +1,17 @@
 <ion-list>
   <ion-item *ngFor="let user of users">
-    <ion-avatar slot="start">
-      <img src='http://placehold.it/75'>
+    <ion-avatar [ngClass]="{active: user.active}" [ngSwitch]="user.tipo"  slot="end">
+      <img *ngSwitchCase="'Admin'" src='../../../../assets/icon/admin.svg'>
+      <img *ngSwitchCase="'Usuario'" src='../../../../assets/icon/user.svg'>
+      <img *ngSwitchCase="'Invitado'"  src='../../../../assets/icon/invited.svg'>
     </ion-avatar>
-    <ion-label>
+    <ion-label  (click)="userSelect(user)">
       <h3>
         {{ user.name }}
       </h3>
       <p>
-        {{ user.email }}
-      </p>
-      <p>
-        {{ user.id }}
+        {{ user.perfil }}
       </p>
     </ion-label>
-    <!-- <ion-thumbnail item-left>
-      <img [src]="user.photo" alt="Imgen de un botellín">
-    </ion-thumbnail> -->
-    <!-- <strong>
-      {{ user.name }}
-    </strong> -->
-    <ion-button shape="round" fill="outline" slot="end" class="button" (click)="userSelect(user)">View</ion-button>
   </ion-item>
-
-  <!-- Skeleton screen -->
-  <div *ngIf="!users">
-    <!-- <div class="ion-padding custom-skeleton">
-    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-    <ion-skeleton-text animated></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-  </div> -->
-
-    <ion-item *ngFor="let user of users">
-      <!-- <ion-list-header>
-      <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
-    </ion-list-header> -->
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-  </div>
 </ion-list>

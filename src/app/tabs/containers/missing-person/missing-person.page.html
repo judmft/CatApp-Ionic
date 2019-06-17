@@ -1,17 +1,17 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-buttons text="Cancelar" slot="start">
-            <ion-back-button></ion-back-button>
-        </ion-buttons>
-      <ng-container>
-        <ion-title>Desaparecido</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="editResource()"><ion-icon name="edit"></ion-icon></ion-button>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button text=""></ion-back-button>
       </ion-buttons>
-      </ng-container>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <app-missing-detail *ngIf="missing_person" [missing_person]="missing_person"></app-missing-detail>
-  </ion-content>
+    <ng-container>
+      <ion-title>Desaparecido</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="editResource()"><ion-icon name="create"></ion-icon></ion-button>
+    </ion-buttons>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-missing-detail *ngIf="missing_person" [missing_person]="missing_person"></app-missing-detail>
+</ion-content>

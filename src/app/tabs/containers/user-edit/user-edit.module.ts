@@ -11,13 +11,14 @@ import { UsersPage } from '../users/users.page';
 
 const routes: Routes = [
   {
-    path: 'tabs/users',
-    component: UsersPage
-  },
-  {
     path: '',
     component: UserEditPage
   },
+  {
+    path: 'tabs/users',
+    component: UsersPage
+  },
+  
 
 ];
 

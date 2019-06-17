@@ -14,17 +14,17 @@ export class UsersPage implements OnInit {
   users: User[];
   @Output() userSelectEvent = new EventEmitter();
 
-  constructor(private tabsService: TabsService, private router: Router) {
+  constructor(private tabsService: TabsService, private router: Router) {}
 
-   }
+  ngOnInit() {}
 
-  ngOnInit() {
-
+//El Lazy Load de Ionic hace que esta página se cargue una sola vez
+  //por lo que para ver los cambios sin recargar el navegadro debemos llamar a esta función
+  ionViewWillEnter(){
     this.tabsService.getUsers().subscribe(users => {
       this.users = users;
     });
-
-  }
+}
 
   userSelection(id: number) {
     this.router.navigate(['tabs/users', id]);
@@ -34,6 +34,5 @@ export class UsersPage implements OnInit {
   addUser(){
     this.router.navigate(['tabs/users/new'])
   }
-
 
 }

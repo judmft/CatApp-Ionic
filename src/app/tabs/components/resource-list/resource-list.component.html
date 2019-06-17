@@ -1,6 +1,6 @@
 <ion-list>
   <ion-item *ngFor="let resource of resources">
-    <ion-label>
+    <ion-label (click)="resourceSelect(resource)">
       <h3>
         {{ resource.name }}
       </h3>
@@ -17,37 +17,5 @@
     <!-- <strong>
       {{ user.name }}
     </strong> -->
-    <ion-button shape="round" fill="outline" slot="end" class="button" (click)="resourceSelect(resource)">View</ion-button>
   </ion-item>
 
-  <!-- Skeleton screen -->
-  <div *ngIf="!resources">
-    <!-- <div class="ion-padding custom-skeleton">
-    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-    <ion-skeleton-text animated></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-  </div> -->
-
-    <ion-item *ngFor="let resource of resources">
-      <!-- <ion-list-header>
-      <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
-    </ion-list-header> -->
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-  </div>
-</ion-list>

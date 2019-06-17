@@ -3,6 +3,7 @@ import { User } from '../../models/users.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TabsService } from '../../tabs.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TabsPage } from '../../tabs.page';
 
 @Component({
   selector: 'app-user-edit',
@@ -14,14 +15,19 @@ export class UserEditPage implements OnInit {
   user: User;
   userForm: FormGroup;
   
-  constructor(private tabsService: TabsService, private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute){
+  constructor(
+    private tabsService: TabsService, 
+    private router: Router, 
+    private formBuilder: FormBuilder, 
+    private activatedRoute: ActivatedRoute)
+    {
 
   } 
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
       name: [null, Validators.required],
-      dni: [null],
+      dni: [null, Validators.pattern('^[0-9]{8}[a-zA-Z]{1}$')],
       age: [null],
       phone: [null],
       tipo: [null],
@@ -46,7 +52,7 @@ export class UserEditPage implements OnInit {
   }
 
   onSubmit(){
-    if (this.user.id){
+    if (this.user){
       this.tabsService.updateUser(this.user.id, this.userForm.value).subscribe(res => {
         console.log(res)
         this.router.navigate(['tabs/users'])

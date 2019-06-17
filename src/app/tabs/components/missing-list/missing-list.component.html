@@ -3,7 +3,7 @@
     <ion-avatar slot="start">
       <img [src]='missing_person.image'>
     </ion-avatar>
-    <ion-label>
+    <ion-label (click)="missingSelect(missing_person)">
       <h3>
         {{ missing_person.name }} {{ missing_person.lastname }}
       </h3>
@@ -20,6 +20,6 @@
     <!-- <strong>
       {{ user.name }}
     </strong> -->
-    <ion-button shape="round" fill="outline" slot="end" class="button" (click)="missingSelect(missing_person)">View</ion-button>
+    <!-- <ion-button shape="round" fill="outline" slot="end" class="button" (click)="missingSelect(missing_person)">View</ion-button> -->
   </ion-item>
 </ion-list>
