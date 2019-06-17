@@ -26,8 +26,7 @@ export class UserPage implements OnInit {
         }, err => {
           console.error(err);
         });
-      }
-      
+      } 
     });
     
   }
