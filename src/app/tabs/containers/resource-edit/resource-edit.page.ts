@@ -3,6 +3,7 @@ import { Resource } from '../../models/resource.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TabsService } from '../../tabs.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-resource-edit',
@@ -18,7 +19,10 @@ export class ResourceEditPage implements OnInit {
     private tabsService: TabsService, 
     private router: Router, 
     private formBuilder: FormBuilder, 
-    private activatedRoute: ActivatedRoute)
+    private activatedRoute: ActivatedRoute,
+    private alertController: AlertController
+    )
+   
     {
 
   } 
@@ -43,24 +47,41 @@ export class ResourceEditPage implements OnInit {
     });
   }
   
+  async okAlert() {
+    const alert = await this.alertController.create({
+      message: !this.resource ? 'Recurso añadido' : 'Se han editado los datos',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  async errorAlert() {
+    const alert = await this.alertController.create({
+      message: !this.resource ? 'No se ha podido añadir el recurso' : 'No se han podido editar los datos',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  } 
+
   onSubmit(){
-    if (this.resource.id){
+    if (this.resource){
       this.tabsService.updateResource(this.resource.id, this.resourceForm.value).subscribe(res => {
-        console.log(res)
+        this.okAlert();
         this.router.navigate(['tabs/resources'])
-        console.log('El recurso ha sido editado correctamente', res);
       },
       () => {
-        console.log('No se ha podido editar el recurso');
+        this.errorAlert();
       });
     }else{
       this.tabsService.createResource(this.resourceForm.value).subscribe(res => {
+      this.okAlert();
       this.router.navigate(['tabs/resources'])
-      console.log('El recurso ha sido creado correctamente', res);
     },
     () => {
-      console.log('No se ha podido crear el recurso');
-    })
+      this.errorAlert()
+    });
     } 
   }
 }

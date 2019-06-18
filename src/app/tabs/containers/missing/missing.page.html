@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content>
-    <app-missing-list *ngIf="missing_people" [missing_people]="missing_people" (missingSelectEvent)="missingSelection($event)"></app-missing-list>
+    <app-missing-list 
+    *ngIf="missing_people" 
+    [missing_people]="missing_people" 
+    (missingSelectEvent)="missingSelection($event)"
+    (missingDeleteEvent)="missingDeleteSelection($event)"
+    ></app-missing-list>
 </ion-content>

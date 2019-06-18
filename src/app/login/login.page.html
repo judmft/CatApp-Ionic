@@ -1,0 +1,25 @@
+
+<ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <form [formGroup]="loginForm">
+        <div text-center>
+          <img src="../../assets/icon/logo.svg" alt="icono cruz roja">
+        </div>
+        <div padding>
+          <ion-item>
+            <ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-input type="password" formControlName="password" placeholder="Contraseña"></ion-input>
+          </ion-item>
+        </div>
+  
+        <div padding>
+          <ion-button size="large" type="submit" expand="block" (click)="login()">Entrar</ion-button>
+        </div>
+      </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

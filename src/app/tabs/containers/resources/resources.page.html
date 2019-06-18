@@ -13,5 +13,10 @@
 </ion-header>
 
 <ion-content>
-    <app-resource-list *ngIf="resources" [resources]="resources" (resourceSelectEvent)="resourceSelection($event)"></app-resource-list>
+    <app-resource-list 
+    *ngIf="resources" 
+    [resources]="resources" 
+    (resourceSelectEvent)="resourceSelection($event)"
+    (resourceDeleteEvent)="resourceDeleteSelection($event)"
+    ></app-resource-list>
 </ion-content>

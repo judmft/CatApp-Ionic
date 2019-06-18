@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TabsService } from '../../tabs.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TabsPage } from '../../tabs.page';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-edit',
@@ -19,7 +20,8 @@ export class UserEditPage implements OnInit {
     private tabsService: TabsService, 
     private router: Router, 
     private formBuilder: FormBuilder, 
-    private activatedRoute: ActivatedRoute)
+    private activatedRoute: ActivatedRoute,
+    private alertController: AlertController)
     {
 
   } 
@@ -30,13 +32,14 @@ export class UserEditPage implements OnInit {
       dni: [null, Validators.pattern('^[0-9]{8}[a-zA-Z]{1}$')],
       age: [null],
       phone: [null],
-      tipo: [null],
-      perfil: [null],
+      tipo: [null, Validators.required],
+      perfil: [null, Validators.required],
       email: [null, [Validators.email, Validators.required]],
       password: [null, Validators.required],
-      password_confirmation: [null],
+      password_confirmation: [null, Validators.required],
 
     });
+
 
     this.activatedRoute.params.subscribe(params => {
       if (params.id){
@@ -51,24 +54,40 @@ export class UserEditPage implements OnInit {
     });
   }
 
+  async okAlert() {
+    const alert = await this.alertController.create({
+      message: !this.user ? 'Usuario añadido' : 'Se han editado los datos',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  async errorAlert() {
+    const alert = await this.alertController.create({
+      message: !this.user ? 'No se ha podido añadir el usuario' : 'No se han podido editar los datos',
+      buttons: ['OK']
+    });
+  }
+
   onSubmit(){
     if (this.user){
+      // this.userForm.get('password').errors
       this.tabsService.updateUser(this.user.id, this.userForm.value).subscribe(res => {
-        console.log(res)
+        this.okAlert();
         this.router.navigate(['tabs/users'])
-        console.log('El usuario ha sido editado correctamente', res);
       },
       () => {
-        console.log('No se ha podido editar el usuario');
+        this.errorAlert();
       });
     }else{
       this.tabsService.createUser(this.userForm.value).subscribe(res => {
+        this.okAlert();
         this.router.navigate(['tabs/users'])
-        console.log('El usuario ha sido creado correctamente', res);
       },
     () => {
-      console.log('No se ha podido crear el usuario');
-    })
+      this.errorAlert();
+    });
     }
-  }
+  } 
 }

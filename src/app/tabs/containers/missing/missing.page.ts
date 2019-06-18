@@ -35,4 +35,12 @@ export class MissingPage implements OnInit {
   addMissing(){
     this.router.navigate(['tabs/missing/new'])
   }
+
+  missingDeleteSelection(id: number){
+    this.tabsService.deleteMissing(id).subscribe(res => {
+      console.log("Persona eliminada")
+    }, err => {
+      console.error(err);
+    });
+  }
 }

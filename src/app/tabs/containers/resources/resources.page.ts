@@ -36,4 +36,11 @@ export class ResourcesPage {
   addResource(){
     this.router.navigate(['tabs/resources/new'])
   }
+
+  resourceDeleteSelection(id: number){
+    this.tabsService.deleteResource(id).subscribe(res => {
+    }, err => {
+      console.error(err);
+    });
+  }
 }

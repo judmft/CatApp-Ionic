@@ -90,4 +90,12 @@ export class TabsService {
   deleteUser(userId: number): Observable<User> {
     return this.http.delete<User>(`${this.USERS_API}/${userId}`);
   }
+
+  deleteResource(resourceId: number): Observable<User> {
+    return this.http.delete<User>(`${this.RESOURCES_API}/${resourceId}`);
+  }
+
+  deleteMissing(missingId: number): Observable<User> {
+    return this.http.delete<User>(`${this.MISSING_API}/${missingId}`);
+  }
 }
