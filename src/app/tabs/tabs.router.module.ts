@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: './containers/missing/missing.module#MissingPageModule'
       },
       {
+        path: 'login',
+        loadChildren: './containers/login/login.module#LoginPageModule'
+      },
+      {
         path: '',
         redirectTo: 'tabs/users',
         pathMatch: 'full'

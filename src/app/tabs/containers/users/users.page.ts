@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UsersPage implements OnInit {
 
   users: User[];
-  @Output() userSelectEvent = new EventEmitter();
 
   constructor(private tabsService: TabsService, private router: Router) {}
 
@@ -29,6 +28,13 @@ export class UsersPage implements OnInit {
   userSelection(id: number) {
     this.router.navigate(['tabs/users', id]);
 
+  }
+  userDeleteSelection(id: number){
+    this.tabsService.deleteUser(id).subscribe(res => {
+      console.log("usuario eliminado")
+    }, err => {
+      console.error(err);
+    });
   }
 
   addUser(){

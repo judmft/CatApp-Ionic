@@ -10,5 +10,10 @@
 </ion-header>
 
 <ion-content>
-    <app-user-list *ngIf="users" [users]="users" (userSelectEvent)="userSelection($event)"></app-user-list>
+    <app-user-list 
+        *ngIf="users" 
+        [users]="users" 
+        (userSelectEvent)="userSelection($event)"
+        (userDeleteEvent)="userDeleteSelection($event)">
+      </app-user-list>
 </ion-content>

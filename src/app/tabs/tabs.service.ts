@@ -14,17 +14,21 @@ export class TabsService {
   USERS_API = 'http://api-catapp.herokuapp.com/api/v1/users';
   RESOURCES_API = 'http://api-catapp.herokuapp.com/api/v1/resources';
   MISSING_API = 'http://api-catapp.herokuapp.com/api/v1/missing_people';
-   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
-    })
-  };
+  LOGIN_API = 'http://api-catapp.herokuapp.com/api/v1/login';
+  token: string;
+  headers: HttpHeaders;
 
+  getLoggedInUser(token){
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    })
+    
+  }
   constructor(private http: HttpClient ) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.USERS_API}`);
+    return this.http.get<User[]>(`${this.USERS_API}`, {headers: this.headers});
   }
 
   getResources(): Observable<Resource[]> {
@@ -45,6 +49,17 @@ export class TabsService {
 
   getMissingPerson(missingId): Observable<Missing> {
     return this.http.get<Missing>(`${this.MISSING_API}/${missingId}`);
+  }
+  
+  createToken(datos, email: string, pass: string): Observable<string> { 
+    const data = datos;
+    data.email = email;
+    data.pass = pass
+    return this.http.post<string>(`${this.LOGIN_API}`, data);
+  }
+  
+  sendToken(token: string) {
+    return this.token = token;
   }
 
   createUser(user: User): Observable<User>{
@@ -72,20 +87,7 @@ export class TabsService {
     return this.http.patch<Resource>(`${this.MISSING_API}/${missingId}`, missing);
   } 
 
-  
-  
-
-  //   userData: User,
-  //   name: string,
-  //   email: string,
-  //   password:string
-  // ): Observable<any> {
-  //   const user: User = userData;
-  //   user.name = name;
-  //   user.email = email;
-  //   user.password = password;
-  //   return this.http.post(`${this.USERS_API}`, user);
-  // }
-
-
+  deleteUser(userId: number): Observable<User> {
+    return this.http.delete<User>(`${this.USERS_API}/${userId}`);
+  }
 }
